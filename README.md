@@ -16,8 +16,12 @@ Install gems:
 Configure environment:
 
   go to https://openweathermap.org/ and sign up for their free api
+
   generate an api key
+
   place the api key in your `.env` file as `OPENWEATHER_API_KEY`
+
+  
 
 Start the Rails server:
 
