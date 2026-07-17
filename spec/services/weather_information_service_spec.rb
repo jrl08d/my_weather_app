@@ -17,7 +17,7 @@ RSpec.describe WeatherInformationService, type: :service do
         # ensure service returns error message if user does not input a zip
 
         result = service.fetch_weather
-        assert_includes result[:error], "Weather information for zip code provided not found"
+        expect(result[:error]).to include "Weather information for zip code provided not found"
       end
     end
 
@@ -51,11 +51,11 @@ RSpec.describe WeatherInformationService, type: :service do
       it 'returns weather information' do
         result = service.fetch_weather
 
-        assert_equal 15.5, result[:temperature]
-        assert_equal 15, result[:low]
-        assert_equal 15.8, result[:high]
-        assert_equal "partly cloudy", result[:description]
-        assert_equal 72, result[:humidity]
+        expect(result[:temperature]).to eq 15.5
+        expect(result[:low]).to eq 15
+        expect(result[:high]).to eq 15.8
+        expect(result[:description]).to eq "partly cloudy"
+        expect(result[:humidity]).to eq 72
       end
 
       # ensure repeated calls hit the cache and avoid re requesting the external api
