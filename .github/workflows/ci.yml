@@ -81,11 +81,11 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
+          ruby-version: '3.4.10'
           bundler-cache: true
 
      - name: Run RSpec Tests
-        run: |
-          bundle exec rspec
+        run: bundle exec rspec
 
   system-test:
     runs-on: ubuntu-latest
