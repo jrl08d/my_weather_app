@@ -1,0 +1,31 @@
+- if flash[:notice]
+  .notice= flash[:notice]
+
+- if @weather_data
+  - if @weather_data[:error]
+    %p{:style => "color: red;"}= @weather_data[:error]
+  - else
+    %h3
+      Results for #{params[:zip_code].titleize}:
+    %p
+      %strong Temperature:
+      = @weather_data[:temperature]
+      °F
+    %p
+      %strong Low:
+      = @weather_data[:low]
+      °F
+    %p
+      %strong High:
+      = @weather_data[:high]
+      °F
+    %p
+      %strong Conditions:
+      = @weather_data[:description].capitalize
+    %p
+      %strong Humidity:
+      = @weather_data[:humidity]
+
+%br
+
+= link_to "Home", root_path
